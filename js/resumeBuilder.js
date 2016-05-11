@@ -1,30 +1,4 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
 
- //$("#main").append("Michael");
-
- // [string].replace([old], [new]);
-
-/*var awesomeThoughts = ('My name is Michael and I am AWESOME!')
-
-console.log(awesomeThoughts)
-
-var email = ('michaeldong@gmail.com')
-
-var newEmail =
-  email.replace('michaeldong', 'michaeldong32')
-
-console.log(email)
-console.log(newEmail)
-
-var funThoughts =
-    awesomeThoughts.replace('AWESOME', 'FUN')
-
-console.log(funThoughts)
-
-$("#main').append(funThoughts); 
-*/
 
 
 var name = "Michael Dong";
@@ -44,70 +18,85 @@ var bio = {
     "phone": "0272332823",
     "location": "Wellington"
     },
+  "bioPic": "images/fry.jpg",
   "welcomeMessage": "Hello and check out my awesome resume.",
-  "skills": ["communicator ", "listener ", "empathy " , "team player " ,"coach "],
-  "bioPic": "images/fry.jpg"
-
+  "skills": ["communicator ", "listener ", "empathy " , "team player " ,"coach "]
 }
 
-//create variables from the object, replace them in the js helper
-var picture = HTMLbioPic.replace('%data%',bio.bioPic);
-var message = HTMLwelcomeMsg.replace('%data%',bio.welcomeMessage);
 
-//add them to the index.html in javascript
 
-$("#header").append(picture);
-$("#header").append(message);
+//create work object with object literal notation
+var work = {
+  "jobs": [
+    {
+      "employer": "Simillimum",
+      "title": "Director",
+      "dates": "1997- current",
+      "description": "Responsible for planning, strategy and management"
+    },
+    {
+      "employer": "Paydens",
+      "title": "Pharmacist",
+      "dates": "1988-1997",
+      "description": "sole charge Pharmacist"
+    },
+    {
+      "employer": "Bristol Myers Squibb",
+      "title": "Area Manager",
+      "dates": "1986 - 1988",
+      "description": "Sales and Marketing of pharmaceuticals"
+    },
+    {
+      "employer": "Taranaki Base Hospital",
+      "title": "Staff Pharmacist",
+      "dates": "1984 - 1986",
+      "description": "Clinical and ward pharmacist"
+    }
+  ]
+}
 
-var skills = HTMLskills.replace('%data%',bio.skills);
-$("#header").append(skills);
 
-var contacts = HTMLcontactGeneric.replace('%data%',bio.contacts);
-/*var phone = HTMlmobile.replace('%data%', bio.phone);
-var location = HTMLlocation.replace('%data%', bio.location);*/
-
-$("#topContacts").append(contacts);
-/*$("#header").append(phone);
-$("#header").append(location);*/
-
-//using dot notation, create work object
-var work = {};
-work.position = "kingpin";
-work.employer ="Simillimum";
-work.years = 21;
-work.city = "Wellington";
-
-// create education object using bracket notation.
+// create education object literal notation.
 var education = {
   "schools": [
     {
       "name": "Central Institute of Technology",
-      "city": "Wellington",
-      "major": "Pharmacy"
+      "location": "Wellington",
+      "degree": "Diploma in Pharmacy",
+      "major": "Pharmacy",
+      "dates": "1983-1985"
     },
     {
       "name": "Imperial College",
-      "city": "London",
-      "major": ["Homeopathy","Nutrition"]
+      "location": "London",
+      "degree": "Diploma in Homeopathy",
+      "major": ["Homeopathy","Nutrition"],
+      "dates": "1990 -1994"
     },
     {
       "name": "EDA",
-      "city": "Wellington",
-      "major": ["web development"]
+      "location": "Wellington",
+      "degree": "none",
+      "major": ["web development"],
+      "dates": "2016"
     }
   ],
 
   "onlineCourses": {
-      "name": "Code academey - full stack program",
-      "URL": "www.codeacademy.com",
-      "major": "full stack development"
+      "title": "full stack program",
+      "school": "Code Academy",
+      "dates": "Oct 2015 - March 2016",
+      "URL": "www.codeacademy.com"
     }
 }
- 
 
-//append to html
-
-$("#main").append(work.position);
-$("#main").append(education.name);
-
-
+var projects = {
+  "projects": [
+    {
+    "title": "Frog racer",
+    "dates": "May2016",
+    "description": "Vanilla JavaScript racing game",
+    "images": "http://michaeldong32.github.io/javascript-racer/"
+    }
+  ]
+}
