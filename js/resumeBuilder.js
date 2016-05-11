@@ -26,15 +26,16 @@ console.log(funThoughts)
 $("#main').append(funThoughts); 
 */
 
-var formattedName = HTMLheaderName.replace('%data%',name);
 
 var name = "Michael Dong";
 var role = "Problem solver";
 var formattedRole = HTMLheaderRole.replace('%data%',role);
+var formattedName = HTMLheaderName.replace('%data%',name);
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName); 
 
+//create the object bio
 var bio = {
   "name": "Michael Dong",
   "role": "Junior Software Developer",
@@ -49,9 +50,11 @@ var bio = {
 
 }
 
-
+//create variables from the object, replace them in the js helper
 var picture = HTMLbioPic.replace('%data%',bio.bioPic);
 var message = HTMLwelcomeMsg.replace('%data%',bio.welcomeMessage);
+
+//add them to the index.html in javascript
 
 $("#header").append(picture);
 $("#header").append(message);
@@ -59,10 +62,52 @@ $("#header").append(message);
 var skills = HTMLskills.replace('%data%',bio.skills);
 $("#header").append(skills);
 
-var contacts = HTMLcontactGeneric.replace('%data%', bio.contacts);
+var contacts = HTMLcontactGeneric.replace('%data%',bio.contacts);
 /*var phone = HTMlmobile.replace('%data%', bio.phone);
 var location = HTMLlocation.replace('%data%', bio.location);*/
 
 $("#topContacts").append(contacts);
 /*$("#header").append(phone);
 $("#header").append(location);*/
+
+//using dot notation, create work object
+var work = {};
+work.position = "kingpin";
+work.employer ="Simillimum";
+work.years = 21;
+work.city = "Wellington";
+
+// create education object using bracket notation.
+var education = {
+  "schools": [
+    {
+      "name": "Central Institute of Technology",
+      "city": "Wellington",
+      "major": "Pharmacy"
+    },
+    {
+      "name": "Imperial College",
+      "city": "London",
+      "major": ["Homeopathy","Nutrition"]
+    },
+    {
+      "name": "EDA",
+      "city": "Wellington",
+      "major": ["web development"]
+    }
+  ],
+
+  "onlineCourses": {
+      "name": "Code academey - full stack program",
+      "URL": "www.codeacademy.com",
+      "major": "full stack development"
+    }
+}
+ 
+
+//append to html
+
+$("#main").append(work.position);
+$("#main").append(education.name);
+
+
