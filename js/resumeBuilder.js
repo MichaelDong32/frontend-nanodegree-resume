@@ -23,6 +23,15 @@ var bio = {
   "skills": ["communicator ", "listener ", "empathy " , "team player " ,"coach "]
 }
 
+//create variables from the object, replace them in the js helper
+var picture = HTMLbioPic.replace('%data%',bio.bioPic);
+var message = HTMLwelcomeMsg.replace('%data%',bio.welcomeMessage);
+
+//add them to the index.html in javascript
+
+$("#header").append(picture);
+$("#header").append(message);
+
 
 
 //create work object with object literal notation
@@ -100,3 +109,50 @@ var projects = {
     }
   ]
 }
+
+//check to see if skills are in bio
+if (bio.skills.length > 0){
+
+//If yes, append to HTMLskillsStart
+  $("#header").append(HTMLskillsStart);
+
+//append each skill to the HTML element with id-skills
+  var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+  $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+  $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+  $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+  $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
+
+  $("#skills").append(formattedSkill);
+}
+
+//for in loop for work
+
+for (job in work.jobs) {
+
+  //append to HTMLworkStart
+  $("#workExperience").append(HTMLworkStart);
+
+  //format using js helper and replace method
+
+  var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+  var formattedTitle= HTMLworkTitle.replace("%data%", work.jobs[job].title);
+
+  //concatenate 2 variables  
+
+  var formattedEmployerTitle = formattedEmployer + formattedTitle;
+
+
+  $(".work-entry:last").append ( formattedEmployerTitle);
+
+  var formattedworkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+  var formattedworkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+
+$(".work-entry:last").append (formattedworkDates);
+$(".work-entry:last").append (formattedworkDescription);
+
+};
