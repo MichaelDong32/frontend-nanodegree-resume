@@ -38,29 +38,24 @@ $("#header").append(message);
 var work = {
   "jobs": [
     {
-      "employer": "Simillimum",
-      "title": "Director",
-      "dates": "1997- current",
-      "description": "Responsible for planning, strategy and management"
+      "employer": "zoo",
+      "title": "lion tamer",
+      "dates": "2000- current",
+      "description": "Excitement, thrills and danger"
     },
     {
-      "employer": "Paydens",
-      "title": "Pharmacist",
+      "employer": "chimelong circus",
+      "title": "trapeze artist",
       "dates": "1988-1997",
-      "description": "sole charge Pharmacist"
+      "description": "swinger baby"
     },
     {
-      "employer": "Bristol Myers Squibb",
-      "title": "Area Manager",
+      "employer": "nasa",
+      "title": "astronaut",
       "dates": "1986 - 1988",
-      "description": "Sales and Marketing of pharmaceuticals"
-    },
-    {
-      "employer": "Taranaki Base Hospital",
-      "title": "Staff Pharmacist",
-      "dates": "1984 - 1986",
-      "description": "Clinical and ward pharmacist"
+      "description": "fly me to the moon and let me play among the stars. Let me see what life is like between Jupiter and Mars"
     }
+    
   ]
 }
 
@@ -69,24 +64,24 @@ var work = {
 var education = {
   "schools": [
     {
-      "name": "Central Institute of Technology",
+      "name": "Circus",
       "location": "Wellington",
-      "degree": "Diploma in Pharmacy",
-      "major": "Pharmacy",
+      "degree": "Diploma in daredevil",
+      "major": "crazy things",
       "dates": "1983-1985"
     },
     {
       "name": "Imperial College",
       "location": "London",
-      "degree": "Diploma in Homeopathy",
-      "major": ["Homeopathy","Nutrition"],
+      "degree": "bachelor",
+      "major": ["zoo training"],
       "dates": "1990 -1994"
     },
     {
       "name": "EDA",
       "location": "Wellington",
-      "degree": "none",
-      "major": ["web development"],
+      "degree": "what degree",
+      "major": ["Hmmmmm?"],
       "dates": "2016"
     }
   ],
@@ -130,29 +125,75 @@ if (bio.skills.length > 0){
   $("#skills").append(formattedSkill);
 }
 
+
+//creat a function called displayWork
+function displayWork() {
 //for in loop for work
 
-for (job in work.jobs) {
+    for (job in work.jobs) {
 
-  //append to HTMLworkStart
-  $("#workExperience").append(HTMLworkStart);
+      //append to HTMLworkStart
+      $("#workExperience").append(HTMLworkStart);
 
-  //format using js helper and replace method
+      //format using js helper and replace method
 
-  var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-  var formattedTitle= HTMLworkTitle.replace("%data%", work.jobs[job].title);
+      var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+      var formattedTitle= HTMLworkTitle.replace("%data%", work.jobs[job].title);
 
-  //concatenate 2 variables  
+      //concatenate 2 variables  
 
-  var formattedEmployerTitle = formattedEmployer + formattedTitle;
+      var formattedEmployerTitle = formattedEmployer + formattedTitle;
 
 
-  $(".work-entry:last").append ( formattedEmployerTitle);
+      $(".work-entry:last").append ( formattedEmployerTitle);
 
-  var formattedworkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-  var formattedworkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+      var formattedworkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+      var formattedworkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 
-$(".work-entry:last").append (formattedworkDates);
-$(".work-entry:last").append (formattedworkDescription);
+    $(".work-entry:last").append (formattedworkDates);
+    $(".work-entry:last").append (formattedworkDescription);
 
+    }
+}
+
+//call the displayWork function
+displayWork();
+
+function = projects.display() {
+  for (project in projects.projects) {
+    $("#projects").append(HTMLprojectStart);
+
+    var formattedTitle = HTMLprojectTitle.replace("%data%", project.projects[project].title);
+    $ (".project-entry:last").append(formattedTitle);
+
+  }
 };
+
+/*click data
+
+$(document).click(function(loc) {
+  var x = loc.pageX;
+  var y = loc.pageY;
+  logClicks (x,y)
+});
+*/
+//capitalization of name
+
+
+//create a function to change name to capitalize surname
+
+function inName(name) {
+  name = name.split(" ");
+  console.log(name);
+
+  name[1] = name[1].toUpperCase();
+  name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase;
+
+  return name[0] + " " + name[1];
+ 
+}
+
+$("#main").append(internationalizeButton);
+
+//projects
+
