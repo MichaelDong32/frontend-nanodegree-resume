@@ -65,7 +65,7 @@ var education = {
   "schools": [
     {
       "name": "Circus",
-      "location": "Wellington",
+      "location": "GuangZhou",
       "degree": "Diploma in daredevil",
       "major": "crazy things",
       "dates": "1983-1985"
@@ -159,15 +159,56 @@ function displayWork() {
 //call the displayWork function
 displayWork();
 
-function = projects.display() {
-  for (project in projects.projects) {
-    $("#projects").append(HTMLprojectStart);
+education.display = function() {
+    for (school in education.schools) {
+      $("#education").append(HTMLschoolStart);
 
-    var formattedTitle = HTMLprojectTitle.replace("%data%", project.projects[project].title);
-    $ (".project-entry:last").append(formattedTitle);
+      var formattedName = HTMLschoolName.replace('%data%', education.schools[school].name);
+      var formattedLocation = HTMLschoolLocation.replace('%data%', education.schools[school].location);
+      var formattedDegree = HTMLschoolDegree.replace('%data%', education.schools[school].degree);
+      var formattedMajors = HTMLschoolMajor.replace('%data%', education.schools[school].majors);
+      var formattedDates = HTMLschoolDates.replace('%data%', education.schools[school].dates);
 
+      var formattedSchool = formattedName + formattedLocation + formattedDegree + formattedMajors + formattedDates;
+
+      $(".education-entry:last").append(formattedSchool);
+    }
+
+    for (online in education.onlineCourses) {
+      $("#online").append(HTMLonlineClasses);
+
+      var formattedTitle = HTMLonlineTitle.replace('%data%', education.onlineCourses[online].title);
+      var formattedNetSchool = HTMLonlineSchool.replace('%data%', education.onlineCourses[online].school);
+      var formattedDate = HTMLonlineDates.replace('%data%', education.onlineCourses[online].date);
+      var formattedURL = HTMLonlineURL.replace('%data%', education.onlineCourses[online].url);
+
+      var formattedOnline = formattedTitle + formattedNetSchool + formattedDate + formattedURL;
+
+      $(".online-entry:last").append(formattedOnline);
+    }
+}
+
+education.display();
+
+projects.display = function() {
+  for (prop in projects.projects) {
+    if (projects.projects.hasOwnProperty(prop)) {
+      $("#projects").append(HTMLprojectStart);
+
+      var formattedTitle = HTMLprojectTitle.replace('%data%', projects.projects[prop].title);
+      var formattedDate = HTMLprojectDates.replace('%data%', projects.projects[prop].dates);
+      var formattedDescription = HTMLprojectDescription.replace('%data%', projects.projects[prop].description);
+      var formattedImage = HTMLprojectImage.replace('%data%', projects.projects[prop].images);
+
+      var formattedProject = formattedTitle + formattedDate + formattedDescription + formattedImage;
+
+      $(".project-entry:last").append(formattedProject);
+    }
   }
-};
+}
+
+projects.display();
+
 
 /*click data
 
@@ -183,17 +224,27 @@ $(document).click(function(loc) {
 //create a function to change name to capitalize surname
 
 function inName(name) {
-  name = name.split(" ");
-  console.log(name);
+  name = name.trim.split(" ");
 
   name[1] = name[1].toUpperCase();
   name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase;
 
   return name[0] + " " + name[1];
- 
 }
 
 $("#main").append(internationalizeButton);
 
-//projects
+//add a map
 
+$("#mapDiv").append(googleMap);
+
+//function inName(name) {
+//   name = name.trim().split(" ");
+//   name[1] = name[1].toUpperCase();
+//   name[0] = name[0].slice(0,1).toUpperCase() + 
+//     name[0].slice(1).toLowerCase();
+
+//     return name[0] +" "+ name[1];
+// }
+
+// $("#main").append(internationalizeButton);
