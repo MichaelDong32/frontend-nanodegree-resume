@@ -85,21 +85,21 @@ var education = {
       "location": "GuangZhou",
       "degree": "Diploma in daredevil",
       "majors": "crazy things",
-      "dates": "1983-1985"
+      "dates": "1983-1985   "
     },
     {
       "name": "Imperial College",
       "location": "London",
       "degree": "bachelor",
       "majors": ["zoo training"],
-      "dates": "1990 -1994"
+      "dates": "1990 -1994   "
     },
     {
       "name": "EDA",
       "location": "Wellington",
       "degree": "degree in building webs",
       "majors": ["confusion"],
-      "dates": "2016"
+      "dates": "2016   "
     }
   ],
 
