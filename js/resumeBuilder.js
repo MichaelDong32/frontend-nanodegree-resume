@@ -1,37 +1,56 @@
-
-
-
-var name = "Michael Dong";
-var role = "Problem solver";
-var formattedRole = HTMLheaderRole.replace('%data%',role);
-var formattedName = HTMLheaderName.replace('%data%',name);
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName); 
-
 //create the object bio
 var bio = {
   "name": "Michael Dong",
-  "role": "Junior Software Developer",
+  "role": "General fix it man",
   "contacts": {
-    "email": "mjdong32@gmail.com",
-    "phone": "0272332823",
+    "email": "mikewillfixit@gmail.com",
+    "phone": "027123456",
     "location": "Wellington"
     },
   "bioPic": "images/fry.jpg",
   "welcomeMessage": "Hello and check out my awesome resume.",
-  "skills": ["communicator ", "listener ", "empathy " , "team player " ,"coach "]
+  "skills": ["dragon taming ", "champion jenga king ", " transformer " , "golfer " ," super coach "]
 }
 
-//create variables from the object, replace them in the js helper
-var picture = HTMLbioPic.replace('%data%',bio.bioPic);
-var message = HTMLwelcomeMsg.replace('%data%',bio.welcomeMessage);
+    //create variables from the object, replace them in the js helper
+    var formattedRole = HTMLheaderRole.replace('%data%',bio.role);
+    var formattedName = HTMLheaderName.replace('%data%',bio.name);
+    $("#header").prepend(formattedRole);
+    $("#header").prepend(formattedName); 
 
-//add them to the index.html in javascript
+    var picture = HTMLbioPic.replace('%data%',bio.bioPic);
+    var message = HTMLwelcomeMsg.replace('%data%',bio.welcomeMessage);
 
-$("#header").append(picture);
-$("#header").append(message);
+    //add them to the header element in javascript
 
+    $("#header").append(picture);
+    $("#header").append(message);
+
+    var formattedEmail = HTMLemail.replace('%data', bio.contacts.email);
+    var formattedMobile = HTMLmobile.replace('%data', bio.contacts.phone);
+
+    $(".flex-box").append(formattedEmail);
+    $(".flex-box").append(formattedMobile);
+
+    //check to see if skills are in bio
+  if (bio.skills.length > 0){
+
+//If yes, append to HTMLskillsStart
+  $("#header").append(HTMLskillsStart);
+
+//append each skill to the HTML element with id-skills
+  var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+    $("#skills").append(formattedSkill);
+      formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+    $("#skills").append(formattedSkill);
+      formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+    $("#skills").append(formattedSkill);
+      formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+    $("#skills").append(formattedSkill);
+      formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
+
+  $("#skills").append(formattedSkill);
+}
 
 
 //create work object with object literal notation
@@ -41,24 +60,22 @@ var work = {
       "employer": "zoo",
       "title": "lion tamer",
       "dates": "2000- current",
-      "description": "Excitement, thrills and danger"
+      "description": "Excitement, thrills and danger. Entertaining death defying stunts with wild man eating beasts."
     },
     {
       "employer": "chimelong circus",
       "title": "trapeze artist",
       "dates": "1988-1997",
-      "description": "swinger baby"
+      "description": "Swings from side to side. Will he fly or will he die. Tumbling, soaring , floating. Free from gravity."
     },
     {
       "employer": "nasa",
       "title": "astronaut",
       "dates": "1986 - 1988",
       "description": "fly me to the moon and let me play among the stars. Let me see what life is like between Jupiter and Mars"
-    }
-    
+    }   
   ]
 }
-
 
 // create education object literal notation.
 var education = {
@@ -67,21 +84,21 @@ var education = {
       "name": "Circus",
       "location": "GuangZhou",
       "degree": "Diploma in daredevil",
-      "major": "crazy things",
+      "majors": "crazy things",
       "dates": "1983-1985"
     },
     {
       "name": "Imperial College",
       "location": "London",
       "degree": "bachelor",
-      "major": ["zoo training"],
+      "majors": ["zoo training"],
       "dates": "1990 -1994"
     },
     {
       "name": "EDA",
       "location": "Wellington",
-      "degree": "what degree",
-      "major": ["Hmmmmm?"],
+      "degree": "degree in building webs",
+      "majors": ["confusion"],
       "dates": "2016"
     }
   ],
@@ -97,33 +114,26 @@ var education = {
 var projects = {
   "projects": [
     {
-    "title": "Frog racer",
-    "dates": "May2016",
-    "description": "Vanilla JavaScript racing game",
-    "images": "http://michaeldong32.github.io/javascript-racer/"
+    "title": "re engineering ",
+    "dates": "May 2016",
+    "description": "Mid life crisis sees Mike trying to learn something totally new.",
+    "images": "images/197x148.gif"
+    },
+    {
+    "title": "Y2K - Y not",
+    "dates": "January 2000",
+    "description": "Escape from the madness of the Y2K bug. Spent the day meditating and leaving this earthly realm.",
+    "images": "images/197x148.gif"
+    },
+    {
+    "title": "Rebuild of a motorcycle.",
+    "dates": "1987",
+    "description": "A journey of self discovery by motorcycle maintenance. It's not what it says in the manual",
+    "images": "images/197x148.gif"
     }
   ]
 }
 
-//check to see if skills are in bio
-if (bio.skills.length > 0){
-
-//If yes, append to HTMLskillsStart
-  $("#header").append(HTMLskillsStart);
-
-//append each skill to the HTML element with id-skills
-  var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-  $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-  $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-  $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-  $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
-
-  $("#skills").append(formattedSkill);
-}
 
 
 //creat a function called displayWork
